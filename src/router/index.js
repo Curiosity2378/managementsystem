@@ -80,19 +80,11 @@ const router = new VueRouter({
 
 //检查token
 router.beforeEach((to,from,next) => {
+    let token = localStorage.getItem('accessToken');
     if(to.path.startsWith('/login') || to.path.startsWith('/password')){
-        if(window.localStorage.getItem('accessToken')){
-            next('/');
-        }else{
-            next();
-        }
-    }else{
-        let token = window.localStorage.getItem('accessToken');
-        if(!token){
-            next('/login');
-        }else{
+        if(typeof(token) !== 'string'){
             axios.get(
-                'http://localhost:8080/lone/jwt/check',
+                '/jwt',
                 {
                     headers:{
                         'accessToken': token
@@ -100,11 +92,36 @@ router.beforeEach((to,from,next) => {
                 }
             ).then(
                 response => {
-                    if(!response.data){
-                        next({path:'/login'})
+                    if(response.data){
+                        next({path:'/'});
+                    }else{
+                        localStorage.removeItem('accessToken');
+                        next();
                     }
                 })
+        }else{
             next();
+        }
+    }else{
+        if(typeof(token) !== 'string'){
+            next('/login');
+        }else{
+            axios.get(
+                '/jwt',
+                {
+                    headers:{
+                        'accessToken': token
+                    }
+                }
+            ).then(
+                response => {
+                    if(response.data){
+                        next();
+                    }else{
+                        localStorage.removeItem('accessToken');
+                        next({path:'/login'});
+                    }
+                })
         }
     }
 })
