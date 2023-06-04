@@ -143,7 +143,7 @@ export default {
       let isDelete = confirm("确认删除该售后问题吗？");
       if (isDelete) {
         axios.delete(
-          `http://localhost:8080/lone/problem/${rowData.problemId}`,
+          `/problem/${rowData.problemId}`,
         ).then(
           response => {
             if (response.data) {
@@ -162,7 +162,7 @@ export default {
           Data[i] = this.multipleSelection[i].problemId
         }
         axios.put(
-          "http://localhost:8080/lone/problem/delete",
+          "/problem/delete",
           Data
         ).then(
           response => {
@@ -176,7 +176,7 @@ export default {
     },
     handleCurrentChange(val = 1) {
       axios.post(
-        `http://localhost:8080/lone/problem/condition/${val}`,
+        `/problem/condition/${val}`,
         this.queryData
       ).then(
         response => {
@@ -186,7 +186,7 @@ export default {
     },
     queryProblemCount() {
       axios.post(
-        "http://localhost:8080/lone/problem/problemCount",
+        "/problem/problemCount",
         this.queryData
       ).then(
         response => {

@@ -84,7 +84,7 @@ export default {
                 if (valid) {
                     if (this.formData.isAddable) {
                         axios.post(
-                            "http://localhost:8080/lone/employee/",
+                            "/employee",
                             this.formData
                         ).then(
                             response => {
@@ -100,7 +100,7 @@ export default {
                         )
                     } else {
                         axios.put(
-                            "http://localhost:8080/lone/employee/",
+                            "/employee",
                             this.formData
                         ).then(
                             response => {

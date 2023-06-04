@@ -31,7 +31,7 @@ export default {
   created() {
     let username = localStorage.getItem('username');
     axios.get(
-      `http://localhost:8080/lone/employee/${username}`
+      `/employee/${username}`
     ).then(
       response => {
         let manage = response.data.isManage

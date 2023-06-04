@@ -120,7 +120,7 @@ export default {
       if (isDelete) {
         let Id = rowData.goodsId;
         axios.delete(
-          `http://localhost:8080/lone/goods/${Id}`,
+          `/goods/${Id}`,
         ).then(
           response => {
             if (response.data) {
@@ -139,7 +139,7 @@ export default {
           Data[i] = this.multipleSelection[i].goodsId
         }
         axios.put(
-          "http://localhost:8080/lone/goods/delete",
+          "/goods/delete",
           Data
         ).then(
           response => {
@@ -156,7 +156,7 @@ export default {
     },
     handleCurrentChange(val = 1) {
       axios.post(
-        `http://localhost:8080/lone/goods/condition/${val}`,
+        `/goods/condition/${val}`,
         {
           "goodsName": this.queryData.goodsName
         }
@@ -168,7 +168,7 @@ export default {
     },
     queryGoodsCount() {
       axios.post(
-        "http://localhost:8080/lone/goods/goodsCount",
+        "/goods/goodsCount",
         {
           "goodsName": this.queryData.goodsName
         }

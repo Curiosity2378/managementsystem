@@ -78,7 +78,7 @@ export default {
             this.$refs[formName].validate((valid) => {
                 if (valid) {
                     axios.put(
-                        "http://localhost:8080/lone/client/",
+                        "/client",
                         this.formData
                     ).then(
                         response => {

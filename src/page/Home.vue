@@ -65,7 +65,7 @@ export default {
   methods: {
     queryTotalInfo() {
       axios.get(
-        "http://localhost:8080/lone/problem/totalAndDay?isToday=false"
+        "/problem/totalAndDay?isToday=false"
       ).then(
         response => {
           this.totalInfo = response.data
@@ -74,7 +74,7 @@ export default {
     },
     queryDayInfo() {
       axios.get(
-        "http://localhost:8080/lone/problem/totalAndDay?isToday=true"
+        "/problem/totalAndDay?isToday=true"
       ).then(
         response => {
           this.dayInfo = response.data
@@ -83,7 +83,7 @@ export default {
     },
     queryCenterInfo() {
       axios.get(
-        "http://localhost:8080/lone/problem/seven"
+        "/problem/seven"
       ).then(
         response => {
           let myChart = echarts.init(document.getElementById('serven'));
@@ -105,7 +105,7 @@ export default {
     },
     queryStatusInfo() {
       axios.get(
-        "http://localhost:8080/lone/problem/status"
+        "/problem/status"
       ).then(
         response => {
           let status = echarts.init(document.getElementById('status'));
@@ -145,7 +145,7 @@ export default {
     },
     queryReasonInfo() {
       axios.get(
-        "http://localhost:8080/lone/problem/category"
+        "/problem/category"
       ).then(
         response => {
           let reason = echarts.init(document.getElementById('reason'));
@@ -184,7 +184,7 @@ export default {
     },
     queryGoodsInfo() {
       axios.get(
-        "http://localhost:8080/lone/problem/goods"
+        "/problem/goods"
       ).then(
         response => {
           let product = echarts.init(document.getElementById('product'));

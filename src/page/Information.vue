@@ -86,7 +86,7 @@ export default {
             this.$refs[formName].validate((valid) => {
                 if (valid) {
                     axios.put(
-                        "http://localhost:8080/lone/employee/",
+                        "/employee",
                         this.formData
                     ).then(
                         response => {
@@ -108,7 +108,7 @@ export default {
     mounted() {
         let username = localStorage.getItem('username');
         axios.get(
-            `http://localhost:8080/lone/employee/${username}`
+            `/employee/${username}`
         ).then(
             response => {
                 this.formData = response.data;

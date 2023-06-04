@@ -110,7 +110,7 @@ export default {
       if (isDelete) {
         let Id = rowData.clientId;
         axios.delete(
-          `http://localhost:8080/lone/client/${Id}`,
+          `/client/${Id}`,
         ).then(
           response => {
             if (response.data) {
@@ -126,7 +126,7 @@ export default {
       let isDelete = confirm("确认删除这些用户吗？");
       if (isDelete) {
         axios.put(
-          "http://localhost:8080/lone/client/delete",
+          "/client/delete",
           this.clientIds
         ).then(
           response => {
@@ -153,7 +153,7 @@ export default {
     },
     handleCurrentChange(val = 1) {
       axios.post(
-        `http://localhost:8080/lone/client/condition/${val}`,
+        `/client/condition/${val}`,
         this.queryData
       ).then(
         response => {
@@ -163,7 +163,7 @@ export default {
     },
     queryClientCount() {
       axios.post(
-        "http://localhost:8080/lone/client/clientCount",
+        "/client/clientCount",
         this.queryData
       ).then(
         response => {

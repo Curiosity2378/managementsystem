@@ -106,7 +106,7 @@ export default {
       this.$refs[passwordForm].validate((valid) => {
         if (valid) {
           axios.get(
-            `http://localhost:8080/lone/email/${mail}`
+            `/email/${mail}`
           ).then(
             response => {
               if (response.data) {
@@ -124,7 +124,7 @@ export default {
       this.$refs['passwordForm'].validate((valid) => {
         if (valid) {
           axios.post(
-            `http://localhost:8080/lone/employee/${code}`,
+            `/employee/${code}`,
             this.passwordForm
           ).then(
             response => {

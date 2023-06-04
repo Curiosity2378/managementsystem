@@ -9,7 +9,7 @@ import 'normalize.css'
 import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://localhost:8080/lone'
+axios.defaults.baseURL = '/lone'
 Vue.prototype.$http = axios
 
 axios.interceptors.request.use(config => {

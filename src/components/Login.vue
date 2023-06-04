@@ -92,7 +92,7 @@ export default {
                 localStorage.setItem('accessToken', token);
                 localStorage.setItem('username', username );
                 axios.get(
-                  `http://localhost:8080/lone/employee/${username}`
+                  `/employee/${username}`
                 ).then(
                   response => {
                     this.CHANGEMANAGE(response.data.isManage)
